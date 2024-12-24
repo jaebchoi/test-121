@@ -6,8 +6,9 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  {{- if eq .Values.configStore "enabled"}}
   ignoreDifferences:
-    - group: {{ .Values.configStore }}
+    - group: ""
       kind: ConfigMap
       managedFieldsManagers:
         - argocd-controller
@@ -15,6 +16,7 @@ spec:
       kind: StatefulSet
       managedFieldsManagers:
         - argocd-controller
+  {{- end }}
   destination:
     namespace: test-121
     server: {{ .Values.spec.destination.server }}
