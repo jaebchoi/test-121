@@ -15,7 +15,6 @@ spec:
       kind: StatefulSet
       managedFieldsManagers:
         - argocd-controller
-  {{ end }}
   destination:
     namespace: test-121
     server: {{ .Values.spec.destination.server }}
