@@ -81,6 +81,3 @@ aissemble-hive-metastore-service-chart:
           value: http://s3-local:4566
         - name: fs.s3a.path.style.access
           value: true
-  exports:
-    data:
-      configStore: enabled
